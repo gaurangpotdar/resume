@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppBar, Button, IconButton, TextField, Typography } from '@material-ui/core'
+import {AiOutlinePlusCircle} from 'react-icons/ai'
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const addEdu_cb = () => {
+    console.log('clicked')
 }
 
-export default App;
+const addProf_cb = () => [
+    console.log('new clicked')
+]
+
+const App = () => {
+    return (
+        <div>
+            <AppBar position = "static">
+                    <Typography align="center">
+                        Resume Builder
+                    </Typography>
+            </AppBar>
+
+            <form>
+                <TextField label = "Name" />
+                <TextField label = "Age" />
+                <TextField label = "Gender" /> 
+                {/* Change the above to dropdown */}
+                <TextField label = "Email" />
+                <TextField label = "Phone Number" />
+
+                {/* Professional Details */}
+                <div id = "Educational Qualifications">
+                    <Typography>
+                        <IconButton onClick={() => addEdu_cb()}>
+                            <AiOutlinePlusCircle />
+                        </IconButton>
+                        Add Educational Qualifications
+                        <form>
+                            <TextField label = "Name of Study Place" />
+                            <TextField label = "Type of Education" />
+
+
+                            <Button variant = "contained">
+                                Submit
+                            </Button>
+                        </form>
+                    </Typography>
+
+                </div>
+
+                <Typography>
+                    <IconButton onClick={() => addProf_cb()}>
+                        <AiOutlinePlusCircle />
+                    </IconButton>
+                    Add Professional Information
+                </Typography>
+                
+                
+
+            </form>
+        </div>
+    )
+}
+
+export default App
