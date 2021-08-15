@@ -1,4 +1,4 @@
-import { AppBar, Button, IconButton, TextField, Typography } from '@material-ui/core'
+import { AppBar, Button, Container, IconButton, TextField, Typography } from '@material-ui/core'
 import {AiOutlinePlusCircle} from 'react-icons/ai'
 import React from 'react'
 
@@ -14,49 +14,58 @@ const App = () => {
     return (
         <div>
             <AppBar position = "static">
-                    <Typography align="center">
+                    <Typography align="center" component={'span'}>
                         Resume Builder
                     </Typography>
             </AppBar>
 
+            <TextField label = "Name" />
+            <TextField label = "Age" />
+            <TextField label = "Gender" /> 
+            {/* Change the above to dropdown */}
+            <TextField label = "Email" />
+            <TextField label = "Phone Number" />
+
+            {/* Professional Details */}
+            <IconButton onClick={() => addEdu_cb()}>
+                <AiOutlinePlusCircle />
+            </IconButton>
+
+            <Typography component={'span'}>
+                Add Educational Qualifications
+            </Typography>
+
             <form>
-                <TextField label = "Name" />
-                <TextField label = "Age" />
-                <TextField label = "Gender" /> 
-                {/* Change the above to dropdown */}
-                <TextField label = "Email" />
-                <TextField label = "Phone Number" />
+                <TextField label = "Name of Study Place" />
+                <TextField label = "Type of Education" />
 
-                {/* Professional Details */}
-                <div id = "Educational Qualifications">
-                    <Typography>
-                        <IconButton onClick={() => addEdu_cb()}>
-                            <AiOutlinePlusCircle />
-                        </IconButton>
-                        Add Educational Qualifications
-                        <form>
-                            <TextField label = "Name of Study Place" />
-                            <TextField label = "Type of Education" />
-
-
-                            <Button variant = "contained">
-                                Submit
-                            </Button>
-                        </form>
-                    </Typography>
-
-                </div>
-
-                <Typography>
-                    <IconButton onClick={() => addProf_cb()}>
-                        <AiOutlinePlusCircle />
-                    </IconButton>
-                    Add Professional Information
-                </Typography>
-                
-                
-
+                <Button variant = "contained" type = "submit">
+                    Submit
+                </Button>
             </form>
+
+            <Container>
+
+            </Container>
+
+
+            <Typography>
+                <IconButton onClick={() => addProf_cb()}>
+                    <AiOutlinePlusCircle />
+                </IconButton>
+                    Add Professional Information
+
+                <form>
+                    <TextField label = "Name of Study Place" />
+                    <TextField label = "Type of Education" />
+                    <Button variant = "contained" type = "submit">
+                            Submit
+                    </Button>
+                </form>
+            </Typography>
+            
+                
+
         </div>
     )
 }
