@@ -14,57 +14,67 @@ const App = () => {
     return (
         <div>
             <AppBar position = "static">
-                    <Typography align="center" component={'span'}>
+                    <Typography align="center" component={'span'} style={{height: 50, justifyItems:'center'}}>
                         Resume Builder
                     </Typography>
             </AppBar>
 
-            <TextField label = "Name" />
-            <TextField label = "Age" />
-            <TextField label = "Gender" /> 
-            {/* Change the above to dropdown */}
-            <TextField label = "Email" />
-            <TextField label = "Phone Number" />
-
-            {/* Professional Details */}
-            <IconButton onClick={() => addEdu_cb()}>
-                <AiOutlinePlusCircle />
-            </IconButton>
-
-            <Typography component={'span'}>
-                Add Educational Qualifications
-            </Typography>
-
-            <form>
-                <TextField label = "Name of Study Place" />
-                <TextField label = "Type of Education" />
-
-                <Button variant = "contained" type = "submit">
-                    Submit
-                </Button>
-            </form>
-
-            <Container>
-
+            <span style={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
+                <h2>Basic Details</h2>
+            </span>
+            <Container fixed style={{display: 'flex', maxWidth:'80%', alignItems: 'center', justifyContent: 'center'}}>
+                <form id = "Basic Details" style={{display: 'inline-block', width: '100'} }>
+                    <TextField label = "Name" fullWidth/>
+                    <TextField label = "Age" />
+                    <TextField label = "Gender" /> 
+                    {/* Change the above to dropdown */}
+                    <TextField label = "Email" />
+                    <TextField label = "Phone Number" />
+                </form>
             </Container>
 
 
-            <Typography>
-                <IconButton onClick={() => addProf_cb()}>
-                    <AiOutlinePlusCircle />
-                </IconButton>
-                    Add Professional Information
+            {/* Professional Details */}
+            <h2>Add Qualifications</h2>
+            <Container style = {{display: 'flex'}}>
 
-                <form>
-                    <TextField label = "Name of Study Place" />
-                    <TextField label = "Type of Education" />
-                    <Button variant = "contained" type = "submit">
+                <Container fixed style={{display: 'block'}}>
+                    <IconButton onClick={() => addEdu_cb()}>
+                        <AiOutlinePlusCircle />
+                    </IconButton>
+
+                    <Typography component={'span'}>
+                        Add Educational Qualifications
+                    </Typography>
+
+                    <form>
+                        <TextField label = "Name of Study Place" fullWidth/>
+                        <TextField label = "Type of Education" fullWidth/>
+
+                        <Button variant = "contained" type = "submit" style={{marginTop: 15 }}>
                             Submit
-                    </Button>
-                </form>
-            </Typography>
-            
-                
+                        </Button>
+                    </form>
+                </Container>
+
+                <Container fixed>
+                    <Typography>
+                        <IconButton onClick={() => addProf_cb()}>
+                            <AiOutlinePlusCircle />
+                        </IconButton>
+                            Add Professional Information
+
+                        <form>
+                            <TextField label = "Name of Study Place" fullWidth />
+                            <TextField label = "Type of Education" fullWidth />
+                            <Button variant = "contained" type = "submit">
+                                    Submit
+                            </Button>
+                        </form>
+                    </Typography>
+                </Container>
+
+            </Container>
 
         </div>
     )
