@@ -1,4 +1,4 @@
-import { AppBar, Button, Container, IconButton, TextField, Typography } from '@material-ui/core'
+import { AppBar, Button, Container, Grid, IconButton, MenuItem, TextField, Typography} from '@material-ui/core'
 import {AiOutlinePlusCircle} from 'react-icons/ai'
 import React from 'react'
 
@@ -22,17 +22,36 @@ const App = () => {
             <span style={{display: 'flex', alignItems:'center', justifyContent: 'center'}}>
                 <h2>Basic Details</h2>
             </span>
-            <Container fixed style={{display: 'flex', maxWidth:'80%', alignItems: 'center', justifyContent: 'center'}}>
-                <form id = "Basic Details" style={{display: 'inline-block', width: '100'} }>
-                    <TextField label = "Name" fullWidth/>
-                    <TextField label = "Age" />
-                    <TextField label = "Gender" /> 
+            {/* <Box  style={{display: 'flex', maxWidth:'80%', alignItems: 'center', justifyContent: 'center'}}> */}
+            {/* <Box component = "div" display="flex" style={{width: 350, justifyContent: 'center', alignContent: 'center'}} > */}
+            <Grid container direction="column" justifyContent='center' alignItems='center'>
+                <form id = "Basic Details" display="block">
+                    <div>
+                        <TextField label = "Name" fullWidth/>
+                    </div>
+                    <div>
+                        <TextField label = "Age" type="number"/>
+                        <TextField label = "Gender" select style={{width:100, marginLeft: 5}}>
+                            <MenuItem>
+                                Male
+                            </MenuItem>
+                            <MenuItem>
+                                Female
+                            </MenuItem>
+                            <MenuItem>
+                                Other
+                            </MenuItem>    
+                        </TextField>
+                    </div>
                     {/* Change the above to dropdown */}
-                    <TextField label = "Email" />
-                    <TextField label = "Phone Number" />
+                    <div>
+                        <TextField label = "Email" fullWidth/>
+                    </div>
+                    <div>
+                        <TextField label = "Phone Number" fullWidth/>
+                    </div>
                 </form>
-            </Container>
-
+            </Grid>
 
             {/* Professional Details */}
             <h2>Add Qualifications</h2>
