@@ -1,16 +1,25 @@
 import { AppBar, Button, Container, Grid, IconButton, MenuItem, TextField, Typography} from '@material-ui/core'
 import {AiOutlinePlusCircle} from 'react-icons/ai'
-import React from 'react'
+import React, { useState } from 'react'
 
 const addEdu_cb = () => {
     console.log('clicked')
 }
 
-const addProf_cb = () => [
+const addProf_cb = () => {
     console.log('new clicked')
-]
+}
+
+const formSubmit = () => {
+    console.log('Hello')
+}
 
 const App = () => {
+    const [fn, setFn] = useState('') //First Name
+    const [ln, setLn] = useState('') //Last Name
+
+
+
     return (
         <div>
             <AppBar position = "static">
@@ -27,7 +36,8 @@ const App = () => {
             <Grid container direction="column" justifyContent='center' alignItems='center'>
                 <form id = "Basic Details" display="block">
                     <div>
-                        <TextField label = "Name" fullWidth/>
+                        <TextField label = "First Name" onChange={(e) => (setFn(e.target.value))} value={fn}/>
+                        <TextField label = "Last Name" />
                     </div>
                     <div>
                         <TextField label = "Age" type="number"/>
@@ -50,6 +60,9 @@ const App = () => {
                     <div>
                         <TextField label = "Phone Number" fullWidth/>
                     </div>
+                    <Button variant="contained" type="submit" onSubmit={() => formSubmit}>
+                        Submit
+                    </Button>
                 </form>
             </Grid>
 
